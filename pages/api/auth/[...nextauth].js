@@ -9,7 +9,7 @@ const options = {
         }),
         {
           id: "nextjs_spike",
-          name: "",
+          name: "Eiffel",
           type: "oauth",
           version: "2.0", 
           scope: 'openid',
@@ -17,8 +17,8 @@ const options = {
           accessTokenUrl: ``,
           authorizationUrl: ``,
           profileUrl: ``,
-          clientId: "nextjs_spike",
-          clientSecret: "",
+          clientId: '',
+          clientSecret: '',
           profile: (profile) => {
             return { ...profile, id: profile.sub }
           },
