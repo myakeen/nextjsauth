@@ -18,7 +18,7 @@ const options = {
           clientId: process.env.CLIENT_ID,
           clientSecret: process.env.CLIENT_SECRET,
           headers: {
-            Authorization = 'Basic ' + Buffer.from((clientId + ':' + clientSecret)).toString('base64')
+            Authorization: 'Basic ' + Buffer.from((clientId + ':' + clientSecret)).toString('base64')
           },
           profile: (profile) => {
             console.dir(profile)
