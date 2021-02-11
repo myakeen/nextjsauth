@@ -13,8 +13,8 @@ const options = {
           accessTokenUrl: process.env.ACCESSTOKEN_URL,
           authorizationUrl: process.env.AUTHORIZATION_URL,
           profileUrl: process.env.PROFILE_URL,
-          //clientId: process.env.CLIENT_ID,
-          //clientSecret: process.env.CLIENT_SECRET,
+          clientId: process.env.CLIENT_ID,
+          clientSecret: process.env.CLIENT_SECRET,
           profile: (profile) => {
             return { ...profile, id: profile.sub }
           },
