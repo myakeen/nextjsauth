@@ -1,6 +1,8 @@
 import NextAuth from "next-auth";
 import Providers from "next-auth/providers";
 
+const clientId = process.env.CLIENT_ID;
+const clientSecret = process.env.CLIENT_SECRET;
 const options = {
     providers: [
         {
@@ -15,7 +17,11 @@ const options = {
           profileUrl: process.env.PROFILE_URL,
           clientId: process.env.CLIENT_ID,
           clientSecret: process.env.CLIENT_SECRET,
+          headers: {
+            Authorization = 'Basic ' + Buffer.from((clientId + ':' + clientSecret)).toString('base64')
+          },
           profile: (profile) => {
+            console.dir(profile)
             return { ...profile, id: profile.sub }
           },
           
