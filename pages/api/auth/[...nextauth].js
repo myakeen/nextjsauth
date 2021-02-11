@@ -49,6 +49,27 @@ const options = {
           
         } 
     ],
+    callbacks: {
+      async signIn(...args) {
+        console.dir({args, cb: "signIn"})
+
+        return true
+      },
+      async redirect(url, baseUrl) {
+        console.dir({url, baseUrl, cb: "redirect"})
+
+        return baseUrl
+      },
+      async session(session, ...args) {
+        console.dir({session, args, cb: "session"})
+        return session
+      },
+      async jwt(token, ...args) {
+        console.dir({token, args, cb: "jwt"})
+
+        return token
+      }
+  }
 };
 
 export default (req,res) => NextAuth(req, res, options);
