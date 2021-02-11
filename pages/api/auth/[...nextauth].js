@@ -3,22 +3,18 @@ import Providers from "next-auth/providers";
 
 const options = {
     providers: [
-        Providers.GitHub({
-            clientId: process.env.GITHUB_ID,
-            clientSecret: process.env.GITHUB_SECRET
-        }),
         {
-          id: "nextjs_spike",
-          name: "Eiffel",
+          id: process.env.CLIENT_ID,
+          name: process.env.ENV_NAME,
           type: "oauth",
           version: "2.0", 
           scope: 'openid',
           params: { grant_type: 'authorization_code' },
-          accessTokenUrl: ``,
-          authorizationUrl: ``,
-          profileUrl: ``,
-          clientId: '',
-          clientSecret: '',
+          accessTokenUrl: process.env.ACCESSTOKEN_URL,
+          authorizationUrl: process.env.AUTHORIZATION_URL,
+          profileUrl: process.env.PROFILE_URL,
+          //clientId: process.env.CLIENT_ID,
+          //clientSecret: process.env.CLIENT_SECRET,
           profile: (profile) => {
             return { ...profile, id: profile.sub }
           },
