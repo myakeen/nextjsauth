@@ -22,7 +22,29 @@ const options = {
           },
           profile: (profile) => {
             console.dir(profile)
-            return { ...profile, id: profile.sub }
+          //   {  
+          //     'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name': 'jfeinour',  
+          //     'http://identity.ncarb.org/claims/AlpineUserLogin': 'b390dcb2-cad1-4ecd-ac61-aba500ddd9d2',  
+          //     'http://schemas.microsoft.com/ws/2008/06/identity/claims/role': 'CertMetricsAdmin,Member Board Only Access,My NCARB Account', 
+          //     'http://identity.ncarb.org/claims/grouppermission': 'MemberBoardOnlyAccess,CandidateManagement,TransmittalAccess,DisciplinaryAccess',  
+          //     'http://identity.ncarb.org/claims/accountid': '5cadd74d-c40f-4b5b-aafd-aba500ddd9d2',  
+          //     'http://identity.ncarb.org/claims/personid': 'b390dcb2-cad1-4ecd-ac61-aba500ddd9d2',  
+          //     'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress': 'jfeinour@ncarb.org',  
+          //     'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname': 'Joe',  
+          //     'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname': 'Feinour',  
+          //     'http://identity.ncarb.org/claims/staffId': 'jfeinour@ncarb.org',  
+          //     'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier': 'jfeinour'
+          // }
+            return {
+              /**
+               * {  'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name': 'jfeinour',  'http://identity.ncarb.org/claims/AlpineUserLogin': 'b390dcb2-cad1-4ecd-ac61-aba500ddd9d2',  'http://schemas.microsoft.com/ws/2008/06/identity/claims/role': 'CertMetricsAdmin,Member Board Only Access,My NCARB Account',  'http://identity.ncarb.org/claims/grouppermission': 'MemberBoardOnlyAccess,CandidateManagement,TransmittalAccess,DisciplinaryAccess',  'http://identity.ncarb.org/claims/accountid': '5cadd74d-c40f-4b5b-aafd-aba500ddd9d2',  'http://identity.ncarb.org/claims/personid': 'b390dcb2-cad1-4ecd-ac61-aba500ddd9d2',  'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress': 'jfeinour@ncarb.org',  'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/givenname': 'Joe',  'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname': 'Feinour',  'http://identity.ncarb.org/claims/staffId': 'jfeinour@ncarb.org',  'http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier': 'jfeinour'}
+               * 
+               */
+              name: profile['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name'],
+              email: profile['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'],
+              id: profile['http://identity.ncarb.org/claims/personid'],
+              sub: profile['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']
+            }
           },
           
         } 
