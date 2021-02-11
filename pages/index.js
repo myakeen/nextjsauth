@@ -26,7 +26,7 @@ export default function Home() {
               Signed in as {session.user.name} <br />
               <div>You are now inside the page</div>
               <button>
-                <Link href="/secret">To the secret</Link>
+                <Link href="/protected">To the secret</Link>
               </button>
               <button onClick={signOut}>Sign Out</button>
             </>
